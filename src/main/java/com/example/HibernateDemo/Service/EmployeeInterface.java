@@ -10,4 +10,5 @@ public interface EmployeeInterface {
     EmployeeResponseDto getEmployeeById(long id);
 
     EmployeeResponseDto updateEmployeeById(long id, EmployeeRequestDto employeeRequestDto);
+    EmployeeResponseDto deleteEmployeeById(long id);
 }

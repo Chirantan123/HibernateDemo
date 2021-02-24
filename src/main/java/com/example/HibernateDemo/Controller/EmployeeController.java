@@ -4,8 +4,11 @@ import com.example.HibernateDemo.Service.EmployeeInterface;
 import com.example.HibernateDemo.Service.impl.EmployeeServiceimpl;
 import com.example.HibernateDemo.dto.EmployeeRequestDto;
 import com.example.HibernateDemo.dto.EmployeeResponseDto;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 
 @RestController
@@ -33,4 +36,9 @@ public class EmployeeController {
         return employeeInterface.updateEmployeeById(id, employeeRequestDto);
     }
 
+    @DeleteMapping(value = "/{id}")
+    public EmployeeResponseDto deleteEmployee(@PathVariable("id") long id)
+    {
+      return employeeInterface.deleteEmployeeById(id);
+    }
 }

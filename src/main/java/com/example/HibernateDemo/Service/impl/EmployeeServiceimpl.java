@@ -66,4 +66,18 @@ public class EmployeeServiceimpl implements EmployeeInterface {
 
        return null;
     }
+    @Override
+    public EmployeeResponseDto deleteEmployeeById(long id)
+    {
+        Optional<Employee> employeeOptional =  employeeRepository.findById(id);
+        if(employeeOptional.isPresent())
+        {
+            Employee employeeFromDb = employeeOptional.get();
+            EmployeeResponseDto responseDto = new EmployeeResponseDto();
+            BeanUtils.copyProperties(employeeFromDb,responseDto);
+            employeeRepository.deleteById(id);
+            return responseDto;
+        }
+        return null;
+    }
 }
