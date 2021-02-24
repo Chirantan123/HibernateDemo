@@ -1,5 +1,6 @@
 package com.example.HibernateDemo.Controller;
 
+import com.example.HibernateDemo.Entity.Employee;
 import com.example.HibernateDemo.Service.EmployeeInterface;
 import com.example.HibernateDemo.Service.impl.EmployeeServiceimpl;
 import com.example.HibernateDemo.dto.EmployeeRequestDto;
@@ -8,6 +9,7 @@ import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -41,4 +43,11 @@ public class EmployeeController {
     {
       return employeeInterface.deleteEmployeeById(id);
     }
+
+    @GetMapping("department/{id}")
+    public List<EmployeeResponseDto> getEmployeeListByDepartment(long id)
+    {
+        return employeeInterface.getEmployeeListByDepartment(id);
+    }
+
 }

@@ -1,14 +1,12 @@
 package com.example.HibernateDemo.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "interns")
 @Getter
@@ -22,5 +20,10 @@ public class Employee {
 
     private  String name;
 
-    private String departmentName;
+    //private String departmentName;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    private Department department;
+
 }

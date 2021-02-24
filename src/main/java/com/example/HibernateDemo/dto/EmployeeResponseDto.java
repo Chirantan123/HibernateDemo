@@ -1,6 +1,8 @@
 package com.example.HibernateDemo.dto;
 
 
+import com.example.HibernateDemo.Entity.Department;
+import com.example.HibernateDemo.repository.DepartmentRepository;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,5 +13,13 @@ public class EmployeeResponseDto {
 
     private String name;
 
-    private String departmentName;
+    private DepartmentResponseDto department;
+
+    public DepartmentResponseDto setDepartmentFromEntity(Department departmentEntity) {
+        DepartmentResponseDto departmentResponseDto = new DepartmentResponseDto();
+        departmentResponseDto.setId(departmentEntity.getId());
+        departmentResponseDto.setName(departmentEntity.getName());
+        this.department=departmentResponseDto;
+        return departmentResponseDto;
+    }
 }

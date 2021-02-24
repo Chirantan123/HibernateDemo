@@ -1,6 +1,7 @@
 package com.example.HibernateDemo.dto;
 
 
+import com.example.HibernateDemo.Entity.Department;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,6 @@ import lombok.Setter;
 public class EmployeeRequestDto {
     private long  id;
     private String name;
-    private String departmentName;
+    private Department department;
 
 }
