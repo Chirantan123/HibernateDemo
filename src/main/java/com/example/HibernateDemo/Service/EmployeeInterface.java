@@ -9,10 +9,12 @@ import java.util.List;
 
 public interface EmployeeInterface {
     EmployeeResponseDto createEmployee(EmployeeRequestDto employeeRequestDto);
-    EmployeeResponseDto getEmployeeById(long id);
+    EmployeeResponseDto getEmployeeById(Long id);
 
-    EmployeeResponseDto updateEmployeeById(long id, EmployeeRequestDto employeeRequestDto);
-    EmployeeResponseDto deleteEmployeeById(long id);
+    EmployeeResponseDto updateEmployeeById(Long id, EmployeeRequestDto employeeRequestDto);
+    EmployeeResponseDto deleteEmployeeById(Long id);
 
-    List<EmployeeResponseDto> getEmployeeListByDepartment(long id);
+    List<EmployeeResponseDto> getEmployeeListByDepartment(Long departmentId);
+
+    List<EmployeeResponseDto> mostExperiencedEmployee();
 }

@@ -15,9 +15,10 @@ public class Department {
     @Id
     @GenericGenerator(name="department_id_seq",strategy="increment")
     @GeneratedValue(generator = "department_id_seq",strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String name;
-    @JoinColumn(referencedColumnName = "id",name = "department_Id")
-    @OneToMany
-    List<Employee> employeeList;
+
+    //@JoinColumn(referencedColumnName = "id",name = "department_id")
+    //@OneToMany
+    //List<Employee> employeeList;
 }

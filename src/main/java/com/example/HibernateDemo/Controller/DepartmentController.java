@@ -5,8 +5,11 @@ import com.example.HibernateDemo.Service.DepartmentInterface;
 import com.example.HibernateDemo.Service.EmployeeInterface;
 import com.example.HibernateDemo.dto.DepartmentRequestDto;
 import com.example.HibernateDemo.dto.DepartmentResponseDto;
+import com.example.HibernateDemo.dto.EmployeeResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping (value="/department")
@@ -36,5 +39,9 @@ public class DepartmentController {
         return departmentInterface.updateDepartment(departmentId,departmentRequestDto);
     }
 
-
+    @GetMapping(value="/{id}/employee/mostExperienced")
+    public List<EmployeeResponseDto> getExperienceByDepartmentId(@PathVariable("id") Long id)
+    {
+        return departmentInterface.getExperienceByDepartmentId(id);
+    }
 }

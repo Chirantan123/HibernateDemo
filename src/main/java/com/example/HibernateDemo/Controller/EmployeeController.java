@@ -28,26 +28,32 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/{id}")
-    public EmployeeResponseDto findById(@PathVariable("id") long id)
+    public EmployeeResponseDto findById(@PathVariable("id") Long id)
     {
         return employeeInterface.getEmployeeById(id);
     }
 
     @PutMapping(value="/{id}")
-    public EmployeeResponseDto updateEmployee(@PathVariable("id") long id,@RequestBody EmployeeRequestDto employeeRequestDto) {
+    public EmployeeResponseDto updateEmployee(@PathVariable("id") Long id,@RequestBody EmployeeRequestDto employeeRequestDto) {
         return employeeInterface.updateEmployeeById(id, employeeRequestDto);
     }
 
     @DeleteMapping(value = "/{id}")
-    public EmployeeResponseDto deleteEmployee(@PathVariable("id") long id)
+    public EmployeeResponseDto deleteEmployee(@PathVariable("id") Long id)
     {
       return employeeInterface.deleteEmployeeById(id);
     }
 
-    @GetMapping("department/{id}")
-    public List<EmployeeResponseDto> getEmployeeListByDepartment(long id)
+    @GetMapping(value = "/department/{id}")
+    public List<EmployeeResponseDto> getEmployeeListByDepartment(@PathVariable("id") Long id)
     {
         return employeeInterface.getEmployeeListByDepartment(id);
+    }
+
+    @GetMapping(value="/mostExperienced")
+    public List<EmployeeResponseDto> mostExperiencedEmployee()
+    {
+        return employeeInterface.mostExperiencedEmployee();
     }
 
 }

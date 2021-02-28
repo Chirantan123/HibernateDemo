@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DepartmentRequestDto {
-    private long id;
+    private Long id;
     private String name;
-    private DepartmentRequestDto departmentRequestDto;
+    private String departmentCode;
 }

@@ -8,8 +8,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmployeeRequestDto {
-    private long  id;
+    private Long  id;
     private String name;
-    private Department department;
+    private String code;
+    private Long YearsOfExperience;
+    private DepartmentRequestDto department;
 
 }

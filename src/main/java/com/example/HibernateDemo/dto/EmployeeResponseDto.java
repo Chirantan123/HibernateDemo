@@ -9,17 +9,19 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmployeeResponseDto {
-    private long id;
+    private Long id;
 
     private String name;
 
+    private String code;
+
+    private Long YearsOfExperience;
     private DepartmentResponseDto department;
 
-    public DepartmentResponseDto setDepartmentFromEntity(Department departmentEntity) {
+    public void setDepartmentFromEntity(Department departmentEntity) {
         DepartmentResponseDto departmentResponseDto = new DepartmentResponseDto();
         departmentResponseDto.setId(departmentEntity.getId());
         departmentResponseDto.setName(departmentEntity.getName());
         this.department=departmentResponseDto;
-        return departmentResponseDto;
     }
 }
