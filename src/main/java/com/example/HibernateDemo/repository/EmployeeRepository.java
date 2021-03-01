@@ -34,11 +34,20 @@ public interface  EmployeeRepository extends CrudRepository<Employee,Long> {
 
     List<Employee> getEmployeeListByNativeQuery(Long departmentId);
 
+    //First exercise problem
     @Query(value ="SELECT * FROM interns e WHERE e.years_of_experience=(SELECT MAX(years_of_experience) FROM interns e )" ,
             nativeQuery = true)
     List<Employee> getExperienceByNativeQuery();
 
+    //Second exercise problem
     @Query(value ="SELECT * FROM interns e INNER JOIN department d ON e.department_id=d.id WHERE (e.years_of_experience=(SELECT MAX(years_of_experience) FROM interns e WHERE e.department_id=?1) AND d.id=?1)" ,
             nativeQuery = true)
     List<Employee> getExperienceByNativeQuery(Long departmentId);
+
+
+    //Third exercise problem
+    //@Query(value="SELECT MAX(SUM(years_of_experience)) FROM "(SELECT SUM(years_of_experience) FROM interns e INNER JOIN department d ON e.department_id=d.id) GROUP BY d.id) AS A")
+
+
+
 }

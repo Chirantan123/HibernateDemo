@@ -24,4 +24,5 @@ public class EmployeeResponseDto {
         departmentResponseDto.setName(departmentEntity.getName());
         this.department=departmentResponseDto;
     }
+
 }
